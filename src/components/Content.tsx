@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
@@ -80,9 +80,9 @@ const Content = () => {
   };
 
   return (
-    <div className="flex-1 p-6 flex flex-col bg-gray-900">
-      <div className="flex justify-between mb-6">
-        <div className="w-1/2 relative" ref={searchRef}>
+    <div className="flex-1 p-4 sm:p-6 flex flex-col bg-gray-900">
+      <div className="flex flex-col sm:flex-row justify-between mb-6 space-y-4 sm:space-y-0 sm:space-x-4">
+        <div className="w-full sm:w-1/2 relative" ref={searchRef}>
           <form onSubmit={handleSearch}>
             <input
               type="text"
@@ -94,7 +94,7 @@ const Content = () => {
             />
           </form>
           {suggestions.length > 0 && (
-            <ul className="absolute w-full bg-gray-800 rounded-lg mt-1 shadow-lg border border-gray-700">
+            <ul className="absolute w-full bg-gray-800 rounded-lg mt-1 shadow-lg border border-gray-700 z-10">
               {suggestions.map((feature, index) => (
                 <li
                   key={index}
@@ -113,17 +113,17 @@ const Content = () => {
             </ul>
           )}
         </div>
-        <select className="p-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300">
+        <select className="w-full sm:w-auto p-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300">
           <option>Categories dropdown list</option>
           <option>Dropdown 1</option>
           <option>Dropdown 2</option>
         </select>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 flex-1">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 flex-1">
         {features.map((feature, index) => (
-          <div key={index} className="bg-gray-800 p-6 rounded-lg flex flex-col justify-between transform hover:scale-105 transition duration-300 shadow-lg hover:shadow-xl border border-gray-700">
-            <h3 className="text-xl font-semibold mb-4 text-blue-400">{feature.name}</h3>
-            <Link href={feature.link} className="bg-blue-600 p-3 rounded-lg mt-4 text-center text-white font-medium hover:bg-blue-700 transition duration-300">
+          <div key={index} className="bg-gray-800 p-4 sm:p-6 rounded-lg flex flex-col justify-between transform hover:scale-105 transition duration-300 shadow-lg hover:shadow-xl border border-gray-700">
+            <h3 className="text-lg sm:text-xl font-semibold mb-4 text-blue-400">{feature.name}</h3>
+            <Link href={feature.link} className="bg-blue-600 p-2 sm:p-3 rounded-lg mt-4 text-center text-white font-medium hover:bg-blue-700 transition duration-300">
               Explore
             </Link>
           </div>
